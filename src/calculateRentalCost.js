@@ -5,8 +5,17 @@
  */
 function calculateRentalCost(days) {
   const basePricePerDay = 40;
+  const daysForSmallDiscount = 3;
+  const daysForBigDiscount = 7;
+  const smallDiscountValue = 20;
+  const bigDiscountValue = 50;
 
-  const discount = days < 3 ? 0 : days >= 7 ? 50 : 20;
+  const discount =
+    days < daysForSmallDiscount
+      ? 0
+      : days >= daysForBigDiscount
+        ? bigDiscountValue
+        : smallDiscountValue;
 
   return basePricePerDay * days - discount;
 }
